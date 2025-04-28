@@ -1,0 +1,111 @@
+ body {
+     height: 100vh;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     margin: 0;
+     font-family: 'Poppins', sans-serif;
+     transition: background-color 0.5s ease, color 0.5s ease;
+     background: linear-gradient(45deg, #ff6b6b, #f0a500, #0a74da, #1e1e1e);
+     background-size: 400% 400%;
+     animation: gradientAnimation 15s ease infinite;
+ }
+
+ @keyframes gradientAnimation {
+     0% {
+         background-position: 0% 50%;
+     }
+
+     50% {
+         background-position: 100% 50%;
+     }
+
+     100% {
+         background-position: 0% 50%;
+     }
+ }
+
+ h1 {
+     font-size: 48px;
+     margin-bottom: 20px;
+     transition: color 0.5s ease;
+ }
+
+ #count {
+     font-size: 100px;
+     background: rgba(0, 0, 0, 0.2);
+     padding: 30px 60px;
+     border-radius: 20px;
+     margin-bottom: 20px;
+     transition: all 0.3s ease;
+ }
+
+ #message {
+     font-size: 24px;
+     margin-bottom: 30px;
+     height: 30px;
+     transition: color 0.5s ease;
+ }
+
+ .buttons button {
+     padding: 15px 30px;
+     margin: 0 10px;
+     font-size: 24px;
+     border: none;
+     border-radius: 10px;
+     background-color: #fff;
+     color: #333;
+     cursor: pointer;
+     transition: background-color 0.3s, color 0.3s, transform 0.2s;
+ }
+
+ .buttons button:hover {
+     background-color: #ff6b6b;
+     color: #fff;
+     transform: scale(1.1);
+ }
+
+ .buttons {
+     display: flex;
+     justify-content: center;
+     margin-bottom: 20px;
+ }
+
+ /* Dark Mode Styles */
+ body.dark {
+     background: #1e1e1e;
+     color: #eee;
+ }
+
+ body.dark #count {
+     background: rgba(255, 255, 255, 0.1);
+     color: #fff;
+ }
+
+ body.dark .buttons button {
+     background-color: #333;
+     color: #eee;
+ }
+
+ body.dark .buttons button:hover {
+     background-color: #555;
+     color: #fff;
+ }
+
+ /* Toggle Button */
+ #modeToggle {
+     padding: 10px 20px;
+     font-size: 18px;
+     border: none;
+     border-radius: 8px;
+     background-color: #333;
+     color: #fff;
+     cursor: pointer;
+     margin-top: 20px;
+     transition: background-color 0.3s, color 0.3s;
+ }
+
+ #modeToggle:hover {
+     background-color: #555;
+ }
