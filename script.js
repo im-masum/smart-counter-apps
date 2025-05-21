@@ -1,11 +1,12 @@
 
-// LocalStorage থেকে কাউন্ট রিড
+// LocalStorage 
 let count = localStorage.getItem("count")
   ? parseInt(localStorage.getItem("count"))
   : 0;
 
-// অডিও সাউন্ড
+// Audio sound
 const clickSound = new Audio('audio/notification.mp3');
+
 
 function increase() {
   count++;
@@ -30,13 +31,13 @@ function updateCounter() {
   const message = document.getElementById("message");
   counter.innerText = count;
 
-  // স্মুথ স্কেল
+  // Smooth scale
   counter.style.transform = "scale(1.2)";
   setTimeout(() => {
     counter.style.transform = "scale(1)";
   }, 150);
 
-  // মেসেজ চেক
+  // Message check
   if (count >= 100) {
     message.innerText = "You reached 100!";
   } else if (count < 0) {
@@ -45,7 +46,7 @@ function updateCounter() {
     message.innerText = "";
   }
 
-  // LocalStorage এ কাউন্ট সেভ
+  // LocalStorage count save
   localStorage.setItem("count", count);
 }
 
@@ -54,12 +55,12 @@ function toggleMode() {
   const isDark = document.body.classList.contains("dark");
   const modeButton = document.getElementById("modeToggle");
 
-  // বাটনের টেক্সট আপডেট
+  // Button text update
   modeButton.innerText = isDark
     ? "Switch to Light Mode"
     : "Switch to Dark Mode";
 
-  // থিম LocalStorage এ সেভ
+  // LocalStorage theme save
   localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
@@ -74,7 +75,7 @@ function setInitialTheme() {
       modeButton.innerText = "Switch to Light Mode";
     }
   } else {
-    // ইউজার কিছু সেভ না করলে রাতের ৭টার পর অটো ডার্ক
+    // Auto dark after 7pm
     if (hour >= 19 || hour < 6) {
       document.body.classList.add("dark");
       modeButton.innerText = "Switch to Light Mode";
@@ -82,6 +83,6 @@ function setInitialTheme() {
   }
 }
 
-// শুরুতেই থিম ঠিক করা
+// Theme setting
 setInitialTheme();
 updateCounter();
